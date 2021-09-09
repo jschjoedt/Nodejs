@@ -1,0 +1,15 @@
+{
+  "name": "errorhandling",
+  "version": "1.0.0",
+  "description": "Error handling happy times",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Error",
+    "handling"
+  ],
+  "author": "Jesper Schjødt",
+  "license": "ISC"
+}
