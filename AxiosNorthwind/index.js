@@ -1,3 +1,6 @@
+/*================================================================================
+ * GLOBAL VARIALBES
+ ================================================================================*/
 const axios = require('axios');
 const fs = require('fs');
 const baseUrl = "https://services.odata.org/V3/Northwind/Northwind.svc/";
@@ -5,6 +8,11 @@ const entityName = "Employees";
 const url = baseUrl + entityName;
 const fileName = 'C:\\Users\\jsch\\Desktop\\' + entityName + '.json';
 
+
+
+/*================================================================================
+ * FUNCTIONS
+ ================================================================================*/
 /**
  * Get data from Northwind
  * @param {String} url
@@ -15,8 +23,8 @@ const getData = async(url) => {
     // Get data from Northwind
     const response = await axios.get(url);
 
-    // return response to waiting fuction "processData"
-    return response;
+    // return response data to waiting fuction "processData"
+    return response.data;
 
   } catch (error) {
     // Write error to console
@@ -24,11 +32,15 @@ const getData = async(url) => {
   }
 }
 
-const readData = async(result) => {
-  const response = await getData(url);
 
-  // Return result to waiting function
-  return JSON.stringify(response.data);
+/**
+ * Stringify JSON data.
+ * @param {String} data 
+ * @returns 
+ */
+const readData = async(data) => {
+  // Parse data and return to waiting function "processData"
+  return JSON.stringify(data);
 }
 
 
@@ -54,6 +66,7 @@ const writeData = async(data, fileDest) => {
   return result;
 }
 
+
 /**
  * Main orchestrator function that feches data from Northwind, parses it and writes it to HD.
  * @param {String} url 
@@ -73,9 +86,9 @@ const processData = async(url) => {
 }
 
 
-/**
- * Call main function and write result to log
- */
+/*================================================================================
+ * MAIN
+ ================================================================================*/
 console.log(processData(baseUrl));
 
 
