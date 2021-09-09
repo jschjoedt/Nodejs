@@ -58,7 +58,6 @@ const writeData = async(data, fileDest) => {
     } else {
       result = 'File ' + fileDest + ' is written to disk, happy times!';
     }
-    console.log(result)
     return result;
   });
 
