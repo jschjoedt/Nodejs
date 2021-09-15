@@ -7,7 +7,8 @@
         <div>{{ e.Address }}</div>
       </li>
     </ul>
-    <p v-if="loading">Loading data..</p>
+    <p v-if="loading">Loading data...</p>
+    <div v-if="error">{{ error }}</div>
   </div>
 </template>
 
@@ -38,8 +39,7 @@ export default {
           this.data = response.data.value;
         })
         .catch((error) => {
-          console.log(error);
-          this.errored = true;
+          this.error = error;
         })
         .finally(() => (this.loading = false));
     },
