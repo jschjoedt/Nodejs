@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import { computed, onMounted, methods } from "vue";
+import { computed, onMounted} from "vue";
 import employees from "../assets/post-data.json";
 export default {
   props: {
@@ -19,6 +19,7 @@ export default {
     onMounted(() => {
       console.log("mounted");
     });
+
     // Filter employees on "FirstName" based on input query sent from "HelloWorld"
     const filteredEmployees = computed(() => {
       return employees.value.filter((s) =>
@@ -28,11 +29,6 @@ export default {
     return {
       filteredEmployees,
     };
-  },
-  methods: {
-	  sayHello() {
-		  alert("pelle");
-	  }
   },
 };
 </script>
