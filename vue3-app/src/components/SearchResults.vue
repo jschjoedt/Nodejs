@@ -3,14 +3,15 @@
     <p>Showing {{ filteredEmployees.length }} results for "{{ query }}"</p>
     <ul>
       <li v-for="e in filteredEmployees" :key="e.FirstName">
-        {{ e.FirstName }}, {{ e.LastName }}
+        <div>{{ e.FirstName }}, {{ e.LastName }}</div>
+        <div>{{ e.Address }}</div>
       </li>
     </ul>
   </div>
 </template>
 <script>
-import { computed, onMounted} from "vue";
-import employees from "../assets/post-data.json";
+import { computed, onMounted } from "vue";
+import employees from "../assets/Employees.json";
 export default {
   props: {
     query: String,
